@@ -1,0 +1,21 @@
+So you're starting a new feature...
+
+1) $ git pull upstream master (make sure your code is up to date with the OSoT)
+
+2) $ git checkout -b <feature-branch-name> (create a new branch for your new feature)
+
+3) do stuff until feature is completed
+
+4) $ git pull upstream master
+
+5) $ git add
+   $ git commit -m ''
+   $ git push origin <feature-branch-name> (this is the same branch name you created in step 2)
+
+6) go to your github repo and open a pull request to the OSoT master branch
+
+7) if approved, your work will be merged into the OSoT master branch
+
+8) delete feature-branch-name locally
+
+9) repeat until death
