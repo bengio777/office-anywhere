@@ -49,7 +49,7 @@ footer h3 {
 
 footer img {
   width: 140px;
-  padding-top: 10px;
+  padding-top: 12px;
   display: inline;
   margin-left: 10px;
 }
@@ -69,4 +69,8 @@ footer img {
 
 .result-row img {
   width: 100%;
+}
+
+.modal-close {
+  margin-right: 10px;
 }

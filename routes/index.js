@@ -8,23 +8,28 @@ var users = require("../users")
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Office Anywhere' , verified: req.isAuthenticated(),
+router.get('/', function(req, res, next) { <<
+    << << < HEAD
+    res.render('index', {
+        title: 'Office Anywhere',
+        brand: 'Office Anywhere',
+        verified: req.isAuthenticated(),
+    });
 });
-});
-router.get('/login', function(req,res,next){
-  res.render('login', { flash: req.flash()}
-)
+router.get('/login', function(req, res, next) {
+    res.render('login', {
+        flash: req.flash()
+    })
 });
 router.get('/logout', function(req, res, next) {
     req.logout();
     res.redirect(req.get('referer'));
-});
+})
 
-router.get('/signup', function(req,res,next){
-  res.render('register')
+router.get('/signup', function(req, res, next) {
+    res.render('register')
 });
-router.post('/register', function(req,res,next){
+router.post('/register', function(req, res, next) {
     users.Register(req.body.username, req.body.password, req.body.password1)
         .then(function(error) {
             res.render('login')
