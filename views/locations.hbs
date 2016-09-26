@@ -2,7 +2,7 @@
 
 
 <div class="col-lg-offset-3 col-lg-2 text-center">
-  <img src="https://placeholdit.imgix.net/~text?txtsize=16&txt=Loc+Image&w=500&h=300" alt="Example Location" />
+  <img src="https://placeholdit.imgix.net/~text?txtsize=16&txt=Loc+Image&w=500&h=300" alt="Example Location"/>
 </div>
 <h1>Galvanize</h1>
 
@@ -12,11 +12,19 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere ipsum portti
 <h5>Denver, CO</h5>
 <h5>80202</h5>
 <h5>Phone: (303) 749-0110</h5>
-<h5>Hours: Open today · 7AM–5PM</h5>
-<h3>Comments</h3>
+<h5>Hours: Open today · 7AM–5PM</h5></br>
+<h3>Comments</h3></br>
 
 {{#each comments}}
-<h3>{{'title'}}</h3>
-<text>{{'body'}}</text>
-<h3>{{'rec'}}</h3>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{id}}.) {{'title'}}</h3>
+  </div>
+  <div class="panel-body">
+    <text>{{'body'}}</text><br><br>
+    Would you recommend this venue?<h5>{{'rec'}}</h5>
+  </div>
+</div>
+
 {{/each}}
