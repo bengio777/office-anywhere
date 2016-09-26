@@ -1,9 +1,18 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Office Anywhere' });
-});
+
+router.get('/', getHomePage); //Retrieves '/'
+router.get('/locations', getLocationPage); // Retrieves selected location
+
+function getHomePage(req, res, next) {
+    res.render('index', {
+        title: 'Office Anywhere'
+    })
+}
+
+function getLocationPage(req, res, next) {
+    res.render('locations')
+}
 
 module.exports = router;
