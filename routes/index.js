@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var queries = require('../db/queries')
 
-<<<<<<< HEAD
 router.get('/', getHomePage); //Retrieves '/'
 router.get('/locations', getLocationPage); // Retrieves selected location
 
