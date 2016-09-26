@@ -2,11 +2,9 @@ var express = require('express');
 var router = express.Router();
 var queries = require('../db/queries')
 
-router.get('/', getLocationPage); // Retrieves selected location
+router.get('/', getLocationsPage); // Retrieves selected location
 
-
-
-function getLocationPage(req, res, next) {
+function getLocationsPage(req, res, next) {
     queries.Comments().orderBy('id', 'asc')
         .then(function(data) {
             res.render('locations', {
@@ -17,4 +15,3 @@ function getLocationPage(req, res, next) {
 }
 
 module.exports = router;
-rts = router;
