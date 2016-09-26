@@ -18,4 +18,4 @@ So you're starting a new feature...
 
 8) delete feature-branch-name locally
 
-9) repeat until death
+9) repeat until death!
