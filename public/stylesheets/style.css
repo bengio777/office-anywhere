@@ -48,7 +48,25 @@ footer h3 {
 }
 
 footer img {
-  width: 200px;
+  width: 140px;
+  padding-top: 10px;
   display: inline;
   margin-left: 10px;
+}
+
+.map-wrapper {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.map-wrapper h2 {
+  margin-bottom: 30px;
+}
+
+.result-row {
+  margin-bottom: 30px;
+}
+
+.result-row img {
+  width: 100%;
 }
