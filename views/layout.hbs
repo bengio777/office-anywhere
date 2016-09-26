@@ -2,10 +2,15 @@
 <html>
   <head>
     <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
     <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
   </head>
   <body>
     {{{body}}}
+    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+   <div id="map"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARppMTWlZPCxT0N27P45TB0w0H4BD4hvQ&libraries=places&callback=initAutocomplete"
+         async defer></script>
+  <script src = "/javascripts/mapsAPI.js"></script>
   </body>
 </html>
