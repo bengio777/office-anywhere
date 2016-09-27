@@ -8,13 +8,16 @@ var users = require("../users")
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', getHomePage); //Retrieves '/'
+
+function getHomePage(req, res, next) {
     res.render('index', {
         title: 'Office Anywhere',
         brand: 'Office Anywhere',
         verified: req.isAuthenticated(),
-    });
-});
+
+    })
+}
 router.get('/login', function(req, res, next) {
     res.render('login', {
         flash: req.flash(),
@@ -25,20 +28,20 @@ router.get('/logout', function(req, res, next) {
     res.redirect(req.get('referer'));
 })
 
+
 router.get('/signup', function(req, res, next) {
     res.render('register')
 });
 router.post('/register', function(req, res, next) {
     users.Register(req.body.username, req.body.password, req.body.password1)
         .then(function(message) {
-          console.log("33",message );
-          if(message.rowCount ==1){
-            console.log("35",message);
-              res.render('login')
-          }else{
-            console.log("36",message);
-            res.render('register',{message:message})
-          }
+            if (message.rowCount == 1) {
+                res.render('login')
+            } else {
+                res.render('register', {
+                    message: message
+                })
+            }
         })
 })
 router.post('/login', passport.authenticate('local', {

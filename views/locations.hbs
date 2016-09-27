@@ -1,0 +1,81 @@
+
+
+
+<div class="col-lg-offset-3 col-lg-2 text-center">
+  <img src="https://placeholdit.imgix.net/~text?txtsize=16&txt=Loc+Image&w=500&h=300" alt="Example Location"/>
+</div>
+<h1>Galvanize</h1>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere ipsum porttitor venenatis varius. Duis ac sem ex. Cras imperdiet vitae purus maximus commodo.
+
+<h5>1644 Platte St</h5>
+<h5>Denver, CO</h5>
+<h5>80202</h5>
+<h5>Phone: (303) 749-0110</h5>
+<h5>Hours: Open today · 7AM–5PM</h5></br>
+<h3>Comments</h3></br>
+
+<div class="comment button">
+    <a href="/location/:id" class="btn btn-primary" data-toggle="modal" data-target="#comment-modal">Leave Comment</a>
+</div>
+
+{{#each comments}}
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{id}}.) {{'title'}}</h3>
+  </div>
+  <div class="panel-body">
+    <text>{{'body'}}</text><br><br>
+    Would you recommend this venue?<h5>{{'rec'}}</h5>
+  </div>
+</div>
+
+{{/each}}
+
+<div class="modal fade" id="comment-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <form class="form-horizontal" id="comment-form" action="/locations/:id" method="post">
+          <fieldset>
+            <div class="form-group">
+              <label for="title" class="col-lg-2 control-label">Title</label>
+              <div class="col-lg-10">
+                <input type="text" name="title" class="form-control" id="title" placeholder="Comment Title">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="body" class="col-lg-2 control-label">Body</label>
+              <div class="col-lg-10">
+                <textarea class="form-control" rows="4" id="body" placeholder="Comment Body"></textarea>
+              </div>
+            </div>
+              <label class="col-lg-2 control-label">How did you feel about this locatoin?</label>
+              <div class="col-lg-2">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optradio" id="like" value="option1" checked="">
+                    Like!
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optradio" id="like" value="option2">
+                      Dislike.
+                  </label>
+                </div>
+              </div>
+          <div class="">
+            <div class="form-group">
+              <label for="submitComment" class="col-lg-2 control label"> </label>
+                  <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                  <button type="button" class="btn btn-primary pull-right modal-close" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
