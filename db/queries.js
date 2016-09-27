@@ -1,10 +1,22 @@
-var knex = require('./knex')
+
+
+
+var knex = require('./knex.js')
 
 function Comments() {
-    return knex('comments');
+    return knex('comments').orderBy('id','desc');
+}
+
+function addComments(title,body){
+  return knex("comments").insert({
+    title:title,
+    body:body,
+  })
 }
 
 
 module.exports = {
-    Comments
+
+    addComments: addComments,
+    Comments: Comments
 };
