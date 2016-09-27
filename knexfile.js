@@ -1,4 +1,4 @@
-require('dotenv').load();
+require('dotenv').config();
 // Update with your config settings.
 
 module.exports = {
@@ -6,7 +6,7 @@ module.exports = {
   development: {
     client: 'pg',
     connection:'postgres://localhost/office-anywhere'
-    
+
   },
 
 

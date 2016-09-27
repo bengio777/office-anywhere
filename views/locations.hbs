@@ -23,11 +23,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere ipsum portti
 <p>Please log in to create a comment.</p>
 {{/if}}
 
-<!-- {{#if admin}}  -->
-<!-- {{else}}
-<p>Please log in to create a comment.</p>
-{{/if}} -->
-
 {{#each comments}}
 
 <div class="panel panel-default">
@@ -37,8 +32,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere ipsum portti
   <div class="panel-body">
     <text>{{'body'}}</text>
     Would you recommend this venue?<h5>{{'rec'}}</h5>
+    {{#if admin}}
     <a href="/location/:id" class="btn btn-warning" data-toggle="modal" data-target="">Edit Comment</a>
     <a href="/location/:id" class="btn btn-danger" data-toggle="modal" data-target="">Delete Comment</a>
+    {{/if}}
   </div>
 </div>
 
