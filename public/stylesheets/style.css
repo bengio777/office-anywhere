@@ -7,14 +7,36 @@ a {
   color: #00B7FF;
 }
 
+.navbar {
+  margin-bottom: 30px;
+}
+
+.navbar-nav > li > a:focus {
+  border: 0;
+  outline: 0;
+}
+
 .jumbotron {
+  position:relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url('https://placeholdit.imgix.net/~text?txtsize=63&txt=Hero+Image&w=1340&h=600');
-  min-height: 600px;
   text-align:center;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.jumbotron > img {
+  width: 100%;
+}
+
+.jumbo-content {
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
 }
 
 .feature-image {
@@ -33,6 +55,10 @@ a {
 .jumbotron-form button {
   display: inline;
   margin-left: 5px;
+}
+
+.thumbnail {
+  min-height: 400px;
 }
 
 footer .logo-wrap {
