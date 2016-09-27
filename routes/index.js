@@ -8,8 +8,7 @@ var users = require("../users")
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) { <<
-    << << < HEAD
+router.get('/', function(req, res, next) {
     res.render('index', {
         title: 'Office Anywhere',
         brand: 'Office Anywhere',
@@ -18,7 +17,7 @@ router.get('/', function(req, res, next) { <<
 });
 router.get('/login', function(req, res, next) {
     res.render('login', {
-        flash: req.flash()
+        flash: req.flash(),
     })
 });
 router.get('/logout', function(req, res, next) {
@@ -31,8 +30,15 @@ router.get('/signup', function(req, res, next) {
 });
 router.post('/register', function(req, res, next) {
     users.Register(req.body.username, req.body.password, req.body.password1)
-        .then(function(error) {
-            res.render('login')
+        .then(function(message) {
+          console.log("33",message );
+          if(message.rowCount ==1){
+            console.log("35",message);
+              res.render('login')
+          }else{
+            console.log("36",message);
+            res.render('register',{message:message})
+          }
         })
 })
 router.post('/login', passport.authenticate('local', {

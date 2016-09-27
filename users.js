@@ -25,18 +25,28 @@ function authenticateUser(username, password) {
     })
 
 }
-
-function Register(username,password,password1) {
+function confirmpassword(username,password,password1){
+  if(password == password1){
     return findUser(username)
+  }else{
+    throw new Error("Please confirm your password.")
+  }
+}
+function Register(username,password,password1) {
+  return confirmpassword(username,password,password1)
     .then(function(data){
       if(!data){
         var hash=hashedpass(password)
         return query.AddUser(username,hash);
       }
-      return {error:"Username is already exists"}
-    })
-  }
-
+      else{
+        throw new Error("Username already exists.")
+      }
+  })
+  .catch(function(error){
+    return error;
+  })
+}
 
 module.exports = {
     findUser: findUser,
