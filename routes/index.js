@@ -44,25 +44,25 @@ router.post('/register', function(req, res, next) {
             }
         })
 })
-router.post('/login', passport.authenticate('local', {
-    successRedirect: '/',
+router.post('/login',passport.authenticate('local', {
+    successRedirect:'/',
     failureRedirect: '/login',
     failureFlash: 'Invalid username or password.',
     successFlash: 'Welcome!',
 }))
 
 
-
 router.post('/locations', function(req, res, next) {
+
   console.log('this is the TITLE: ' + req.body.title);
   queries.addComments(req.body.title,req.body.body)
-      .then(function() {
-          queries.Comments()
-          .then(function(comments){
-            console.log(comments);
-            res.render('locations',{comments:comments})
-          })
+    .then(function() {
+      queries.Comments()
+      .then(function(comments){
+        console.log(comments);
+        res.render('locations',{comments:comments, verify:req.isAuthenticated()})
       })
-  })
+    })
+})
 
 module.exports = router;

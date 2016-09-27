@@ -1,30 +1,49 @@
-<div class="col-lg-offset-3 col-lg-2 text-center">
-    <img src="https://placeholdit.imgix.net/~text?txtsize=16&txt=Loc+Image&w=500&h=300" alt="Example Location" />
+<div class="text-center">
+  <img src="https://placeholdit.imgix.net/~text?txtsize=16&txt=Loc+Image&w=500&h=300" alt="Example Location"/>
 </div>
-<h1>Galvanize</h1> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere ipsum porttitor venenatis varius. Duis ac sem ex. Cras imperdiet vitae purus maximus commodo.
+
+<div>
+
+  <h1>Galvanize</h1>
+    <p style= 'margin-bottom:20px'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere ipsum porttitor venenatis varius. Duis ac sem ex. Cras imperdiet vitae purus maximus commodo.</p>
+
+</div>
 
 <h5>1644 Platte St</h5>
 <h5>Denver, CO</h5>
 <h5>80202</h5>
 <h5>Phone: (303) 749-0110</h5>
-<h5>Hours: Open today · 7AM–5PM</h5></br>
-<h3>Comments</h3></br>
+<h5>Hours: Open today · 7AM–5PM</h5>
+<h3>Comments</h3>
 
-<div class="comment button">
-    <a href="/location" class="btn btn-primary" data-toggle="modal" data-target="#comment-modal">Leave Comment</a>
+{{#if verify}}
+
+<div class="comment button" style="margin-bottom:10px">
+    <a href="/location/:id" class="btn btn-primary" data-toggle="modal" data-target="#comment-modal">Leave Comment</a>
 </div>
+
+{{/if}}
 
 {{#each comments}}
 
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">{{id}}.) {{'title'}}</h3>
-        </div>
-        <div class="panel-body">
-            <text>{{'body'}}</text><br><br> Would you recommend this venue?
-            <h5>{{'rec'}}</h5>
-        </div>
-    </div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{id}}.) {{'title'}}</h3>
+  </div>
+<div class="panel-body">
+    <p>{{'body'}}</p>
+    Would you recommend this venue?<h5>{{'rec'}}</h5>
+
+{{#if admin}}
+
+    <a href="/location/:id" class="btn btn-warning" data-toggle="modal" data-target="">Edit Comment</a>
+    <a href="/location/:id" class="btn btn-danger" data-toggle="modal" data-target="">Delete Comment</a>
+
+{{/if}}
+
+</div>
+
+</div>
 
 {{/each}}
 
@@ -63,7 +82,7 @@
               </div> -->
                         <div class="">
                             <div class="form-group">
-                                <label for="submitComment" class="col-lg-2 control label"> </label>
+                                <label for="submitComment" class="col-lg-2 control label"></label>
                                 <button type="submit" class="btn btn-primary pull-right">Submit</button>
                                 <button type="button" class="btn btn-primary pull-right modal-close" data-dismiss="modal">Close</button>
                             </div>
