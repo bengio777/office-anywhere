@@ -15,9 +15,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere ipsum portti
 <h5>Hours: Open today · 7AM–5PM</h5></br>
 <h3>Comments</h3></br>
 
+{{#if login}} <!-- get with Navid for exact syntax -->
 <div class="comment button">
     <a href="/location/:id" class="btn btn-primary" data-toggle="modal" data-target="#comment-modal">Leave Comment</a>
 </div>
+{{else}}
+<p>Please log in to create a comment.</p>
+{{/if}}
 
 {{#each comments}}
 
