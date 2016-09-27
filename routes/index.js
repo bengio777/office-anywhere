@@ -15,7 +15,7 @@ function getHomePage(req, res, next) {
         title: 'Office Anywhere',
         brand: 'Office Anywhere',
         verified: req.isAuthenticated(),
-
+        user: req.user
     })
 }
 router.get('/login', function(req, res, next) {
@@ -53,16 +53,16 @@ router.post('/login',passport.authenticate('local', {
 
 
 router.post('/locations', function(req, res, next) {
+
   console.log('this is the TITLE: ' + req.body.title);
-            queries.addComments(req.body.title,req.body.body)
-                .then(function() {
-                    queries.Comments()
-                    .then(function(comments){
-                      console.log(comments);
-                      res.render('locations',{comments:comments, verify:req.isAuthenticated()})
+  queries.addComments(req.body.title,req.body.body)
+    .then(function() {
+      queries.Comments()
+      .then(function(comments){
+        console.log(comments);
+        res.render('locations',{comments:comments, verify:req.isAuthenticated()})
+      })
+    })
+})
 
-                    })
-                })
-
-            })
 module.exports = router;

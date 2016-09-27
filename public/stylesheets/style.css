@@ -21,6 +21,29 @@ a {
   outline: 0;
 }
 
+.logout-wrapper {
+    float: right;
+    font-size: 11px;
+    line-height: 22px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #98978b;
+    padding: 20px 0;
+}
+
+.logout-wrapper span {
+  margin-right: 15px;
+}
+
+.logout-wrapper a {
+  text-decoration: none;
+  color: #98978b;
+}
+
+.logout-wrapper a:hover {
+  color: white;
+}
+
 .jumbotron {
   position:relative;
   display: flex;
