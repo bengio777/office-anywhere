@@ -4,9 +4,10 @@
 <div class="col-lg-offset-3 col-lg-2 text-center">
   <img src="https://placeholdit.imgix.net/~text?txtsize=16&txt=Loc+Image&w=500&h=300" alt="Example Location"/>
 </div>
+
 <h1>Galvanize</h1>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere ipsum porttitor venenatis varius. Duis ac sem ex. Cras imperdiet vitae purus maximus commodo.
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere ipsum porttitor venenatis varius. Duis ac sem ex. Cras imperdiet vitae purus maximus commodo.</p>
 
 <h5>1644 Platte St</h5>
 <h5>Denver, CO</h5>
@@ -15,12 +16,16 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere ipsum portti
 <h5>Hours: Open today · 7AM–5PM</h5></br>
 <h3>Comments</h3></br>
 
-{{#if verified}} -->
+{{#if verified}}
+
 <div class="comment button">
     <a href="/location/:id" class="btn btn-primary" data-toggle="modal" data-target="#comment-modal">Leave Comment</a>
 </div><br>
+
 {{else}}
-<p>Please log in to create a comment.</p>
+
+  <p>Please log in to create a comment.</p>
+
 {{/if}}
 
 {{#each comments}}
@@ -32,10 +37,14 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere ipsum portti
   <div class="panel-body">
     <text>{{'body'}}</text>
     Would you recommend this venue?<h5>{{'rec'}}</h5>
-    {{#if admin}}
+
+{{#if admin}}
+
     <a href="/location/:id" class="btn btn-warning" data-toggle="modal" data-target="">Edit Comment</a>
     <a href="/location/:id" class="btn btn-danger" data-toggle="modal" data-target="">Delete Comment</a>
-    {{/if}}
+
+{{/if}}
+
   </div>
 </div>
 
