@@ -44,13 +44,12 @@ router.post('/register', function(req, res, next) {
             }
         })
 })
-router.post('/login', passport.authenticate('local', {
-    successRedirect: '/',
+router.post('/login',passport.authenticate('local', {
+    successRedirect:'/',
     failureRedirect: '/login',
     failureFlash: 'Invalid username or password.',
     successFlash: 'Welcome!',
 }))
-
 
 
 router.post('/locations', function(req, res, next) {
@@ -60,7 +59,7 @@ router.post('/locations', function(req, res, next) {
                     queries.Comments()
                     .then(function(comments){
                       console.log(comments);
-                      res.render('locations',{comments:comments})
+                      res.render('locations',{comments:comments, verify:req.isAuthenticated()})
 
                     })
                 })
