@@ -1,6 +1,6 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px 'Roboto', sans-serif;
 }
 
 a {
@@ -9,6 +9,11 @@ a {
 
 .navbar {
   margin-bottom: 30px;
+}
+
+.navbar-brand {
+  font-size: 46px;
+  font-family: 'Oleo Script', cursive;
 }
 
 .navbar-nav > li > a:focus {
@@ -25,6 +30,10 @@ a {
   text-align:center;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
+}
+
+.jumbotron h1 {
+  font-size: 56px;
 }
 
 .jumbotron > img {
