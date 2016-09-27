@@ -6,6 +6,7 @@ router.get('/', getLocationsPage); // Retrieves selected location
 
 function getLocationsPage(req, res, next) {
     queries.Comments().orderBy('id', 'asc')
+
         .then(function(data) {
             res.render('locations', {
                 title: 'Office Anywhere',
