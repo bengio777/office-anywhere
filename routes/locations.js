@@ -13,6 +13,7 @@ function getLocationsPage(req, res, next) {
             res.render('locations', {
                 title: 'Office Anywhere',
                 brand: 'Office Anywhere',
+                verify:req.isAuthenticated(),
                 comments: data
             })
         })
