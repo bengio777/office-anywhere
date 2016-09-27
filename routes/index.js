@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
 var knex = require('../db_connection');
-var query = require("../queries");
+// var query = require("../queries");
 var passport = require('../passport');
 var flash = require('connect-flash');
 var users = require("../users")
-
+var queries = require("../db/queries")
 
 /* GET home page. */
 router.get('/', getHomePage); //Retrieves '/'
@@ -50,4 +50,20 @@ router.post('/login', passport.authenticate('local', {
     failureFlash: 'Invalid username or password.',
     successFlash: 'Welcome!',
 }))
+
+
+
+router.post('/locations', function(req, res, next) {
+  console.log('this is the TITLE: ' + req.body.title);
+            queries.addComments(req.body.title,req.body.body)
+                .then(function() {
+                    queries.Comments()
+                    .then(function(comments){
+                      console.log(comments);
+                      res.render('locations',{comments:comments})
+
+                    })
+                })
+
+            })
 module.exports = router;
