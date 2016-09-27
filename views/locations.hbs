@@ -15,14 +15,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere ipsum portti
 <h5>Hours: Open today · 7AM–5PM</h5></br>
 <h3>Comments</h3></br>
 
-
+{{#if verified}} -->
 <div class="comment button">
     <a href="/location/:id" class="btn btn-primary" data-toggle="modal" data-target="#comment-modal">Leave Comment</a>
 </div><br>
-<!-- {{#if login}} -->
-<!-- {{else}}
+{{else}}
 <p>Please log in to create a comment.</p>
-{{/if}} -->
+{{/if}}
 
 <!-- {{#if admin}}  -->
 <!-- {{else}}
@@ -38,8 +37,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere ipsum portti
   <div class="panel-body">
     <text>{{'body'}}</text>
     Would you recommend this venue?<h5>{{'rec'}}</h5>
-    <a href="/location/:id" class="btn btn-warning" data-toggle="modal" data-target="#comment-modal">Edit Comment</a>
-    <a href="/location/:id" class="btn btn-danger" data-toggle="modal" data-target="#comment-modal">Delete Comment</a>
+    <a href="/location/:id" class="btn btn-warning" data-toggle="modal" data-target="">Edit Comment</a>
+    <a href="/location/:id" class="btn btn-danger" data-toggle="modal" data-target="">Delete Comment</a>
   </div>
 </div>
 
