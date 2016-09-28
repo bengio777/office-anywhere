@@ -15,9 +15,9 @@ function getHomePage(req, res, next) {
         title: 'Office Anywhere',
         brand: 'Office Anywhere',
         verified: req.isAuthenticated(),
-        user: req.user
+
     })
-};
+}
 router.get('/login', function(req, res, next) {
     res.render('login', {
         flash: req.flash(),
@@ -26,7 +26,7 @@ router.get('/login', function(req, res, next) {
 router.get('/logout', function(req, res, next) {
     req.logout();
     res.redirect(req.get('referer'));
-});
+})
 
 
 router.get('/signup', function(req, res, next) {
@@ -43,26 +43,26 @@ router.post('/register', function(req, res, next) {
                 })
             }
         })
-});
+})
 router.post('/login',passport.authenticate('local', {
     successRedirect:'/',
     failureRedirect: '/login',
     failureFlash: 'Invalid username or password.',
     successFlash: 'Welcome!',
-}));
+}))
 
 
-// router.get('modifycomment/:id/:user', function(req, res, next){
-
-router.get('modifycomment/:id', function(req, res, next){
-  queries.Comments().where({
-    id: req.params.id
-  }).then(function(comment){
-    res.render('modify', {
-      title: title,
-      comments: comments,
-    })
-  })
-});
-
+// router.post('/locations', function(req, res, next) {
+//   console.log('this is the TITLE: ' + req.body.title);
+//             queries.addComments(req.body.title,req.body.body)
+//                 .then(function() {
+//                     queries.Comments()
+//                     .then(function(comments){
+//                       console.log(comments);
+//                       res.render('locations',{comments:comments, verify:req.isAuthenticated()})
+//
+//                     })
+//                 })
+//
+//             })
 module.exports = router;
