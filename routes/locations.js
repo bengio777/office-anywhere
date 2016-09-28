@@ -21,16 +21,16 @@ function getLocationsPage(req, res, next) {
 
 
 router.post('/locations', function(req, res, next) {
-  console.log(req.body.title);
+  console.log('this is the TITLE: ' + req.body.title);
             queries.addComments(req.body.title,req.body.body)
                 .then(function() {
                     queries.Comments()
                     .then(function(comments){
-                      response.redirect('/locations',{comments:comments})
+                      console.log(comments);
+                      res.render('locations',{comments:comments, verify:req.isAuthenticated()})
 
                     })
                 })
-
             })
 
 
