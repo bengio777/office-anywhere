@@ -17,7 +17,7 @@ function getHomePage(req, res, next) {
         verified: req.isAuthenticated(),
         user: req.user
     })
-}
+};
 router.get('/login', function(req, res, next) {
     res.render('login', {
         flash: req.flash(),
@@ -26,7 +26,7 @@ router.get('/login', function(req, res, next) {
 router.get('/logout', function(req, res, next) {
     req.logout();
     res.redirect(req.get('referer'));
-})
+});
 
 
 router.get('/signup', function(req, res, next) {
@@ -43,12 +43,23 @@ router.post('/register', function(req, res, next) {
                 })
             }
         })
-})
+});
 router.post('/login',passport.authenticate('local', {
     successRedirect:'/',
     failureRedirect: '/login',
     failureFlash: 'Invalid username or password.',
     successFlash: 'Welcome!',
-}))
+}));
+
+router.get('modifycomment/:id/:user', function(req, res, next){
+  queries.Comments().where({
+    id: req.params.id
+  }).then(function(comment){
+    res.render('modify', {
+      title: title,
+      comment: comment,
+    })
+  })
+});
 
 module.exports = router;
