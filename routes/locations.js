@@ -8,24 +8,28 @@ var queries = require('../db/queries')
 router.get('/', getLocationsPage); // Retrieves selected location
 
 function getLocationsPage(req, res, next) {
-  if(req.isAuthenticated()){
-    var tt = req.user.role
-    if (
-     tt != 'admin'|| tt==undefined){
-      admin = false;
-    }else{
-      admin = true;
-    }
-  }
-
-    queries.Comments().orderBy('id', 'asc')
+  queries.Comments().orderBy('id', 'asc')
         .then(function(data) {
+          for(var i in data){
+        if(req.isAuthenticated()){
+          var userRole = req.user.role
+          if (
+           userRole != 'admin'|| userRole==undefined){
+            data[i].admin = false;
+          }else{
+            data[i].admin = true;
+          }
+        }
+        else{
+          data[i].admin = false;
+        }
+      }
             res.render('locations', {
                 title: 'Office Anywhere',
                 brand: 'Office Anywhere',
                 verify: req.isAuthenticated(),
                 comments: data,
-                admin : admin
+                admin : data.admin
             })
         })
     }

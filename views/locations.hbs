@@ -28,12 +28,8 @@
 
 
 
-{{#if admin}}
-    <a href="/location/:id" class="btn btn-warning" data-toggle="modal" data-target="">Edit Comment</a>
-    <a href="/location/:id" class="btn btn-danger" data-toggle="modal" data-target="">Delete Comment</a>
-{{/if}}
 
-<h1> hello {{admin}} </h1>
+
 
 {{#each comments}}
 <div class="panel panel-default">
@@ -44,6 +40,10 @@
     <p>{{body}}</p>
     Would you recommend this venue?<h5>{{rec}}</h5>
 </div>
+{{#if admin}}
+    <a href="/location/:id" class="btn btn-warning" data-toggle="modal" data-target="">Edit Comment</a>
+    <a href="/location/:id" class="btn btn-danger" data-toggle="modal" data-target="">Delete Comment</a>
+{{/if}}
 </div>
 {{/each}}
 
