@@ -1,5 +1,4 @@
 body {
-  padding: 50px;
   font: 14px 'Roboto', sans-serif;
 }
 
@@ -8,7 +7,17 @@ a {
 }
 
 .navbar {
-  margin-bottom: 30px;
+  margin-bottom: 0;
+  border-radius: 0;
+  min-height: 80px;
+}
+
+.navbar .nav {
+  margin-top: 10px;
+}
+
+.navbar-header {
+  margin-top: 10px;
 }
 
 .navbar-brand {
@@ -21,6 +30,30 @@ a {
   outline: 0;
 }
 
+.logout-wrapper {
+    float: right;
+    font-size: 11px;
+    line-height: 22px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #98978b;
+    padding: 20px 0;
+    margin-top: 10px;
+}
+
+.logout-wrapper span {
+  margin-right: 15px;
+}
+
+.logout-wrapper a {
+  text-decoration: none;
+  color: #98978b;
+}
+
+.logout-wrapper a:hover {
+  color: white;
+}
+
 .jumbotron {
   position:relative;
   display: flex;
@@ -30,6 +63,7 @@ a {
   text-align:center;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
+  margin-bottom: 20px;
 }
 
 .jumbotron h1 {
@@ -70,16 +104,23 @@ a {
   min-height: 400px;
 }
 
+footer {
+  background-color: #3e3f3a;
+  min-height: 80px;
+}
+
 footer .logo-wrap {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  margin-top: 4px;
 }
 
 footer h3 {
   display: inline;
   padding-top: 5px;
+  color: white;
 }
 
 footer img {
