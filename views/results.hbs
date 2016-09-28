@@ -1,20 +1,21 @@
 <div class="row results-wrapper">
   <div class="col-lg-12 map-wrapper">
-    <h2>Number of Results</h2>
+    <h2>{{count}} Results</h2>
     <img src="https://placeholdit.imgix.net/~text?txtsize=48&txt=Google+Maps&w=1000&h=500" alt="THIS IS STATIC, DELETE ME" />
   </div>
 </div>
-<!-- BEGIN RESULTS EACH HERE -->
+
 <div class="container-fluid">
 
+  {{#each data}}
   <div class="row result-row">
     <div class="col-lg-offset-3 col-lg-2">
-      <img src="https://placeholdit.imgix.net/~text?txtsize=16&txt=Loc+Image&w=150&h=150" alt="Example Location" />
+      <a href="/location/{{this.ID}}"><img src="{{#if this.full_img}}{{this.full_img}}{{else}}https://placeholdit.imgix.net/~text?txtsize=16&txt=Photos+coming+soon&w=210&h=140{{/if}}" alt="{{this.title}}" /></a>
     </div>
     <div class="col-lg-4">
       <div class="row">
-        <h4>Galvanize</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere ipsum porttitor venenatis varius. Duis ac sem ex. Cras imperdiet vitae purus maximus commodo.</p>
+        <a href="/location/{{this.ID}}"><h4>{{this.title}}</h4></a>
+        <p>{{this.description}}</p>
         <div class="row">
           <div class="col-lg-6">
             <h5>1644 Platte St</h5>
@@ -29,51 +30,6 @@
       </div>
     </div>
   </div>
-
-  <div class="row result-row">
-    <div class="col-lg-offset-3 col-lg-2">
-      <img src="https://placeholdit.imgix.net/~text?txtsize=16&txt=Loc+Image&w=150&h=150" alt="Example Location" />
-    </div>
-    <div class="col-lg-4">
-      <div class="row">
-        <h4>Galvanize</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere ipsum porttitor venenatis varius. Duis ac sem ex. Cras imperdiet vitae purus maximus commodo.</p>
-        <div class="row">
-          <div class="col-lg-6">
-            <h5>1644 Platte St</h5>
-            <h5>Denver, CO</h5>
-            <h5>80202</h5>
-          </div>
-          <div class="col-lg-6">
-            <h5>Phone: (303) 749-0110</h5>
-            <h5>Hours: Open today · 7AM–5PM</h5>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row result-row">
-    <div class="col-lg-offset-3 col-lg-2">
-      <img src="https://placeholdit.imgix.net/~text?txtsize=16&txt=Loc+Image&w=150&h=150" alt="Example Location" />
-    </div>
-    <div class="col-lg-4">
-      <div class="row">
-        <h4>Galvanize</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere ipsum porttitor venenatis varius. Duis ac sem ex. Cras imperdiet vitae purus maximus commodo.</p>
-        <div class="row">
-          <div class="col-lg-6">
-            <h5>1644 Platte St</h5>
-            <h5>Denver, CO</h5>
-            <h5>80202</h5>
-          </div>
-          <div class="col-lg-6">
-            <h5>Phone: (303) 749-0110</h5>
-            <h5>Hours: Open today · 7AM–5PM</h5>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  {{/each}}
 
 </div>
