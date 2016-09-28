@@ -24,28 +24,29 @@
 
 {{/if}}
 
-{{#each comments}}
 
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">{{id}}.) {{'title'}}</h3>
-  </div>
-<div class="panel-body">
-    <p>{{'body'}}</p>
-    Would you recommend this venue?<h5>{{'rec'}}</h5>
+
+
 
 {{#if admin}}
-
     <a href="/location/:id" class="btn btn-warning" data-toggle="modal" data-target="">Edit Comment</a>
     <a href="/location/:id" class="btn btn-danger" data-toggle="modal" data-target="">Delete Comment</a>
-
 {{/if}}
 
-</div>
+<h1> hello {{admin}} </h1>
 
+{{#each comments}}
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{id}}.) {{title}}</h3>
+  </div>
+<div class="panel-body">
+    <p>{{body}}</p>
+    Would you recommend this venue?<h5>{{rec}}</h5>
 </div>
-
+</div>
 {{/each}}
+
 
 <div class="modal fade" id="comment-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
