@@ -2,9 +2,10 @@
 <html>
   <head>
     <title>{{title}}</title>
+    <link href="https://fonts.googleapis.com/css?family=Oleo+Script|Roboto" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/sandstone/bootstrap.min.css" rel="stylesheet" integrity="sha384-G3G7OsJCbOk1USkOY4RfeX1z27YaWrZ1YuaQ5tbuawed9IoreRDpWpTkZLXQfPm3" crossorigin="anonymous">
     <link rel='stylesheet' href='/stylesheets/style.css'/>
     <link rel='stylesheet' href='/stylesheets/mapsAPI.css'/>
-    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/sandstone/bootstrap.min.css" rel="stylesheet" integrity="sha384-G3G7OsJCbOk1USkOY4RfeX1z27YaWrZ1YuaQ5tbuawed9IoreRDpWpTkZLXQfPm3" crossorigin="anonymous">
   </head>
   <body>
     <header>
@@ -21,9 +22,16 @@
           </div>
 
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            {{#if verified}}
+              <div class="logout-wrapper">
+                <span>Welcome, {{user.username}}!</span><a href="/logout">Logout</a>
+              </div>
+            {{/if}}
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="/login" data-toggle="modal" data-target="#login-modal">Login</a></li>
-              <li><a href="/signup">Signup</a></li>
+              {{#unless verified}}
+                <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#signup-modal">Signup</a></li>
+              {{/unless}}
             </ul>
           </div>
 
@@ -38,9 +46,11 @@
          <div id="map"></div> -->
 
     <footer>
-      <div class="row">
-        <div class="col-lg-12 logo-wrap">
-          <h3>Powered by</h3><a href="https://workfrom.co" target="_blank"><img src="/images/workfrom_logo.png" alt="Workfrom" /></a>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12 logo-wrap">
+            <h3>Powered by</h3><a href="https://workfrom.co" target="_blank"><img src="/images/workfrom_logo.png" alt="Workfrom" /></a>
+          </div>
         </div>
       </div>
     </footer>
@@ -54,7 +64,7 @@
                 <div class="form-group">
                   <label for="username" class="col-lg-2 control-label">Username</label>
                   <div class="col-lg-10">
-                    <input type="text" name="username" class="form-control" id="username" placeholder="Enter Username">
+                    <input type="text" name="username" class="form-control" id="username" placeholder="Enter Username" autofocus>
                   </div>
                 </div>
                 <div class="form-group">
@@ -68,13 +78,49 @@
               </fieldset>
             </form>
           </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <form class="form-horizontal" id="signup-form" action="/register" method="post">
+              <fieldset>
+                <div class="form-group">
+                  <label for="username" class="col-lg-2 control-label">Username</label>
+                  <div class="col-lg-10">
+                    <input type="text" name="username" class="form-control" id="username" placeholder="Create Username" autofocus>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="password" class="col-lg-2 control-label">Password</label>
+                  <div class="col-lg-10">
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Create Password">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="password1" class="col-lg-2 control-label">Password</label>
+                  <div class="col-lg-10">
+                    <input type="password" name="password1" class="form-control" id="password1" placeholder="Verify Password">
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                <button type="button" class="btn btn-primary pull-right modal-close" data-dismiss="modal">Close</button>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARppMTWlZPCxT0N27P45TB0w0H4BD4hvQ&libraries=places&callback=initAutocomplete" async defer></script>
     <script src = "/javascripts/mapsAPI.js"></script>
+    <script src = "/javascripts/locations.js"></script>
+
   </body>
 </html>
