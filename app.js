@@ -13,6 +13,7 @@ var flash = require('connect-flash');
 var routes = require('./routes/index');
 var results = require('./routes/results');
 var locations = require('./routes/locations');
+var modify = require('./routes/modify')
 
 var app = express();
 
@@ -40,6 +41,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/results', results);
 app.use('/locations', locations);
+app.use('/modify', modify)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
