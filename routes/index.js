@@ -51,13 +51,16 @@ router.post('/login',passport.authenticate('local', {
     successFlash: 'Welcome!',
 }));
 
-router.get('modifycomment/:id/:user', function(req, res, next){
+
+// router.get('modifycomment/:id/:user', function(req, res, next){
+
+router.get('modifycomment/:id', function(req, res, next){
   queries.Comments().where({
     id: req.params.id
   }).then(function(comment){
     res.render('modify', {
       title: title,
-      comment: comment,
+      comments: comments,
     })
   })
 });

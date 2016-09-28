@@ -6,6 +6,8 @@ var queries = require('../db/queries')
 
 
 router.get('/', getLocationsPage); // Retrieves selected location
+router.post('/', postComment); // Posts a comment 
+
 
 function getLocationsPage(req, res, next) {
   queries.Comments().orderBy('id', 'asc')
@@ -35,7 +37,7 @@ function getLocationsPage(req, res, next) {
     }
 
 
-router.post('/locations', function(req, res, next) {
+function postComment(req, res, next) {
             queries.addComments(req.body.title,req.body.body)
                 .then(function() {
                     queries.Comments()
@@ -43,6 +45,6 @@ router.post('/locations', function(req, res, next) {
                       res.render('locations',{comments:comments, verify:req.isAuthenticated()})
                     })
                 })
-            })
+            }
 
 module.exports = router;

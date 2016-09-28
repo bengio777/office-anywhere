@@ -147,6 +147,10 @@ footer img {
   width: 100%;
 }
 
+.result-row h4 {
+  margin-top: 0;
+}
+
 .modal-close {
   margin-right: 10px;
 }
