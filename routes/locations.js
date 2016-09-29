@@ -12,7 +12,7 @@ router.post('/', postComment); // Posts a comment
 function getLocationsPage(req, res, next) {
   axios.get(`http://api.workfrom.co/places/${req.params.id}?appid=${process.env.WORKFROM_API_KEY}`)
   .then(function(result){
-  console.log(result.data.response);
+  // console.log(result.data.response);
   venue = result.data.response;
 })
   queries.Comments().orderBy('id', 'asc')
@@ -31,11 +31,11 @@ function getLocationsPage(req, res, next) {
           }
       }
           res.render('locations', {
+            venue: venue,
             title: 'Office Anywhere',
             brand: 'Office Anywhere',
             verify: req.isAuthenticated(),
             comments: data,
-            venue: venue,
             admin : data.admin
     })
   })
