@@ -19,26 +19,30 @@
 </div>
 
 {{/each}}
-{{#if verify}}
+{{#if verified}}
 
 <div class="comment button" style="margin-bottom:10px">
     <a href="/location/:id" class="btn btn-primary" data-toggle="modal" data-target="#comment-modal">Leave Comment</a>
 </div>
 
 {{/if}}
-
 {{#each comments}}
 <div class="panel panel-default">
   <div class="panel-heading">
+    <h3>{{username}} wrote:</h3>
     <h3 class="panel-title">{{id}}.) {{title}}</h3>
   </div>
 <div class="panel-body">
     <p>{{body}}</p>
-    Would you recommend this venue?<h5>{{rec}}</h5>
+    <!-- <h5>Would you recommend this venue?<h5>{{rec}}</h5> -->
 </div>
 {{#if admin}}
-    <a href="/location/:id" class="btn btn-warning" data-toggle="modal" data-target="">Edit Comment</a>
-    <a href="/location/:id" class="btn btn-danger" data-toggle="modal" data-target="">Delete Comment</a>
+  <form class="" action="/isDeleted/{{id}}" method="post">
+        <input type="submit" class="btn btn-danger" value="Delete Comment">
+  </form>
+
+    <a href="/modify/{{id}}" class="btn btn-warning" data-toggle="modal">Edit Comment</a>
+
 {{/if}}
 </div>
 {{/each}}
@@ -48,7 +52,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <form class="form-horizontal" id="comment-form" action= '/locations/resultID/{{resultID}}' method="post">
+                <form class="form-horizontal" id="comment-form" action= '/locations/resultID/{{resultID}}/{{user.id}}' method="post">
                     <fieldset>
                         <div class="form-group">
                             <label for="title" class="col-lg-2 control-label">Title</label>
@@ -62,21 +66,6 @@
                                 <textarea class="form-control" name="body" rows="4" id="body" placeholder="Comment Body" required maxlength="140"></textarea>
                             </div>
                         </div>
-                        <!-- <label class="col-lg-2 control-label">How did you feel about this location?</label>
-              <div class="col-lg-2">
-                <div class="radio">
-                  <label>
-                    <input type="radio" name="optradio" id="like" value="option1" checked="">
-                    Like!
-                  </label>
-                </div>
-                <div class="radio">
-                  <label>
-                    <input type="radio" name="optradio" id="like" value="option2">
-                      Dislike.
-                  </label>
-                </div>
-              </div> -->
                         <div class="">
                             <div class="form-group">
                                 <label for="submitComment" class="col-lg-2 control label"></label>

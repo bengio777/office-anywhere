@@ -1,7 +1,8 @@
 
 
 
-<form class="form-horizontal" action="/comment/{{id}}/update/{{comments_id}}" method="POST">
+
+<form class="form-horizontal" action="/isUpdated/{{comment.id}}" method="POST">
   <fieldset>
     <legend>Edit Comments</legend>
     <div class="form-group">
@@ -19,7 +20,7 @@
     <div class="form-group">
       <div class="col-lg-10 col-lg-offset-2">
         <button type="reset" class="btn btn-default">Cancel</button>
-        <button type="submit" class="btn btn-primary">Submit Changes</button>
+        <button type="submit" class="btn btn-primary" value="editComment">Submit Changes</button>
       </div>
     </div>
   </fieldset>
