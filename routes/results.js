@@ -103,7 +103,8 @@ router.get('/', function(req, res, next) {
         error: r.error,
         data,
         count: data.length,
-        map: buildMapScript
+        map: buildMapScript,
+        loadMap: true
       });
    })
    .catch(function(err) {
