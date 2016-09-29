@@ -8,7 +8,6 @@ var axios = require('axios');
 var passport = require('../passport');
 
 
-
 router.get('/:id', getLocationsPage); // Retrieves selected location
 router.post('/resultID/:id/:userid', postComment); // Posts a comment
 

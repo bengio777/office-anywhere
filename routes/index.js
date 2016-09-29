@@ -20,6 +20,8 @@ function getHomePage(req, res, next) {
 router.get('/login', function(req, res, next) {
     res.render('login', {
         flash: req.flash(),
+        verified: req.isAuthenticated(),
+        user: req.user
     })
 });
 router.get('/logout', function(req, res, next) {
@@ -27,7 +29,8 @@ router.get('/logout', function(req, res, next) {
     res.redirect(req.get('referer'));
 })
 router.get('/signup', function(req, res, next) {
-    res.render('register')
+    res.render('register',{  verified: req.isAuthenticated(),
+      user: req.user})
 });
 router.post('/register', function(req, res, next) {
     users.Register(req.body.username, req.body.password, req.body.password1)
@@ -36,7 +39,9 @@ router.post('/register', function(req, res, next) {
                 res.render('login')
             } else {
                 res.render('register', {
-                    message: message
+                    message: message,
+                    verified: req.isAuthenticated(),
+                    user: req.user
                 })
             }
         })

@@ -2,7 +2,7 @@
 var knex = require('./knex.js')
 
 function Comments() {
-    return knex('comments').orderBy('id','desc');
+    return knex("users").join("comments","users.id","comments.user_id ")
 }
 
 
@@ -10,10 +10,12 @@ function comment(id) {
   return knex('comments').where('id', id)
 }
 
-function addComments(title,body){
+function addComments(title,body,user_id,loc_id){
   return knex("comments").insert({
     title:title,
     body:body,
+    user_id:user_id,
+    loc_id:loc_id
   })
 }
 
