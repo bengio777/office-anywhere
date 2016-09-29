@@ -19,7 +19,6 @@
 </div>
 
 {{/each}}
-
 {{#if verify}}
 
 <div class="comment button" style="margin-bottom:10px">
@@ -49,7 +48,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <form class="form-horizontal" id="comment-form" action="/locations" method="post">
+                <form class="form-horizontal" id="comment-form" action= '/locations/resultID/{{resultID}}' method="post">
                     <fieldset>
                         <div class="form-group">
                             <label for="title" class="col-lg-2 control-label">Title</label>
