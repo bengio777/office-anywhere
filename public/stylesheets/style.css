@@ -117,6 +117,11 @@ footer .logo-wrap {
   margin-top: 4px;
 }
 
+footer .copy {
+  color: white;
+  margin: 21px 0;
+}
+
 footer h3 {
   display: inline;
   padding-top: 5px;
