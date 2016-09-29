@@ -19,7 +19,7 @@
 </div>
 
 {{/each}}
-{{#if verify}}
+{{#if verified}}
 
 <div class="comment button" style="margin-bottom:10px">
     <a href="/location/:id" class="btn btn-primary" data-toggle="modal" data-target="#comment-modal">Leave Comment</a>
@@ -60,7 +60,7 @@
                             <div class="col-lg-10">
                                 <textarea class="form-control" name="body" rows="4" id="body" placeholder="Comment Body"></textarea>
                             </div>
-                        </div>                      
+                        </div>
                         <div class="">
                             <div class="form-group">
                                 <label for="submitComment" class="col-lg-2 control label"></label>
