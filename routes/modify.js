@@ -7,7 +7,9 @@ var workfrom = require('workfrom');
 router.get('/', function(req, res, next) {
   res.render('modify', {
     title: 'Office Anywhere - Results',
-    brand: 'Office Anywhere'
+    brand: 'Office Anywhere',
+    verified: req.isAuthenticated(),
+    user: req.user
   });
 });
 
