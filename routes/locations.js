@@ -4,7 +4,7 @@ var express = require('express');
 var router = express.Router();
 var queries = require('../db/queries');
 var axios = require('axios');
-var workfrom= require('workfrom')
+var workfrom = require('workfrom');
 
 router.get('/:id', getLocationsPage); // Retrieves selected location
 router.post('/', postComment); // Posts a comment
