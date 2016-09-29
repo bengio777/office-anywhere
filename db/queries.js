@@ -1,5 +1,17 @@
+"use strict";
 
 var knex = require('./knex.js')
+
+function Users() {
+  return knex("users")
+}
+
+function AddUser(username, password){
+  return knex("users").insert({
+    username: username.toLowerCase(),
+    password: password
+  })
+}
 
 function Comments() {
     return knex('comments').orderBy('id','desc');
@@ -33,10 +45,10 @@ function deleteComments(id){
 
 
 module.exports = {
-
+    Users: Users,
+    AddUser: AddUser,
     Comments: Comments,
     addComments: addComments,
     updateComments: updateComments,
     deleteComments: deleteComments
-
 };

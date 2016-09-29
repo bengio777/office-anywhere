@@ -43,13 +43,12 @@ function getLocationsPage(req, res, next) {
 }
 
 function postComment(req, res, next) {
-
   var ID= req.params.id;
-  queries.addComments(req.body.title,req.body.body)
-    .then(function() {
-      queries.Comments()
-        .then(function(comments){
-          res.redirect('/locations/'+ID)
+    queries.addComments(req.body.title,req.body.body)
+      .then(function() {
+        queries.Comments()
+          .then(function(comments){
+            res.redirect('/locations/'+ID)
     })
   })
 }

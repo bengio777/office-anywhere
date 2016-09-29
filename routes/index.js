@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var knex = require('../db_connection');
+// var knex = require('../db_connection');
 // var query = require("../queries");
 var passport = require('../passport');
 var flash = require('connect-flash');

@@ -1,6 +1,6 @@
 "use strict";
 var bcrypt = require("bcrypt")
-var query = require("./queries")
+var queries = require('./db/queries')
 var passport = require('./passport');
 var flash = require('connect-flash');
 
@@ -10,7 +10,7 @@ function hashedpass(password) {
 }
 
 function findUser(username) {
-    return query.Users().first().where({
+    return queries.Users().first().where({
         username: username.toLowerCase(),
     })
 }
@@ -38,7 +38,7 @@ function Register(username, password, password1) {
         .then(function(data) {
             if (!data) {
                 var hash = hashedpass(password)
-                return query.AddUser(username, hash);
+                return queries.AddUser(username, hash);
             } else {
                 throw new Error("Username already exists.")
             }
