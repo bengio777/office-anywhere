@@ -14,7 +14,7 @@ function AddUser(username, password){
 }
 
 function Comments() {
-    return knex("users").join("comments","users.id","comments.user_id ")
+    return knex("users").join("comments","users.id","comments.user_id ").orderBy("comments.id", "desc")
 }
 
 

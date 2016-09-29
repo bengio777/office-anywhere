@@ -64,33 +64,22 @@ router.get('/modify/:id', function(req, res, next) {
 })
 
 
-router.post('/isUpdated/:id', function(req, res, next){
-  queries.updateComments(req.params.id, req.body.title, req.body.body)
+router.post('/isUpdated/:id/:locid', function(req, res, next){
+  var Id = req.params.locid
+  console.log(Id);
+  queries.updateComments(req.params.id,req.body.title, req.body.body)
   .then(function(){
-    res.redirect('/')
+    res.redirect('/locations/'+Id)
   })
 })
 
-router.post('/isDeleted/:id', function(req, res, next){
-    console.log("deleting comment "+req.params.id);
+router.post('/isDeleted/:id/:locid', function(req, res, next){
+  var Id = req.params.locid
   queries.deleteComments(req.params.id)
   .then(function(){
-    res.redirect('/locations')
+    res.redirect('/locations/'+Id)
+
   })
 })
 
-
-// router.post('/locations', function(req, res, next) {
-//   console.log('this is the TITLE: ' + req.body.title);
-//             queries.addComments(req.body.title,req.body.body)
-//                 .then(function() {
-//                     queries.Comments()
-//                     .then(function(comments){
-//                       console.log(comments);
-//                       res.render('locations',{comments:comments, verify:req.isAuthenticated()})
-//
-//                     })
-//                 })
-//
-//             })
 module.exports = router;

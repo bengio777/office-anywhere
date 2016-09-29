@@ -30,7 +30,6 @@ function getLocationsPage(req, res, next) {
                 data[i].admin = false;
           }
       }
-      console.log(req.isAuthenticated(),req.user);
             res.render('locations', {
               venue: venue,
               title: 'Office Anywhere',
@@ -46,12 +45,12 @@ function getLocationsPage(req, res, next) {
 }
 
 function postComment(req, res, next) {
-  var ID= req.params.id;
+  var Id= req.params.id
   queries.addComments(req.body.title,req.body.body,req.params.userid,req.params.id)
     .then(function() {
       queries.Comments()
         .then(function(comments){
-          res.redirect('/locations/'+ID)
+          res.redirect('/locations/'+Id)
     })
   })
 }

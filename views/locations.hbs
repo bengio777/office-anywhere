@@ -35,9 +35,10 @@
 <div class="panel-body">
     <p>{{body}}</p>
     <!-- <h5>Would you recommend this venue?<h5>{{rec}}</h5> -->
+    {{created_at}}
 </div>
 {{#if admin}}
-  <form class="" action="/isDeleted/{{id}}" method="post">
+  <form class="" action="/isDeleted/{{id}}/{{loc_id}}" method="post">
         <input type="submit" class="btn btn-danger" value="Delete Comment">
   </form>
 
