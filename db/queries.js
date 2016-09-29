@@ -5,8 +5,9 @@ function Comments() {
     return knex('comments').orderBy('id','desc');
 }
 
-function indvComments(){
-  return knex('users').join('comments', 'users.id', 'comments.user_id')
+
+function comment(id) {
+  return knex('comments').where('id', id)
 }
 
 function addComments(title,body){
@@ -17,7 +18,7 @@ function addComments(title,body){
 }
 
 function updateComments(id, title, body){
-  return knex('comment').where({
+  return knex('comments').where({
     id: id
   }).update({
     title: title,
@@ -26,9 +27,9 @@ function updateComments(id, title, body){
 }
 
 function deleteComments(id){
-  return knex('comment').where({
-    id: id
-  })
+  return knex('comments').where({
+    id: id,
+  }).del()
 }
 
 
@@ -37,6 +38,7 @@ module.exports = {
     Comments: Comments,
     addComments: addComments,
     updateComments: updateComments,
-    deleteComments: deleteComments
+    deleteComments: deleteComments,
+    comment: comment,
 
 };

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var knex = require('../db_connection');
-// var query = require("../queries");
+
 var passport = require('../passport');
 var flash = require('connect-flash');
 var users = require("../users")
@@ -44,25 +44,37 @@ router.post('/register', function(req, res, next) {
             }
         })
 });
-router.post('/login',passport.authenticate('local', {
-    successRedirect:'/',
+router.post('/login', passport.authenticate('local', {
+    successRedirect: '/',
     failureRedirect: '/login',
     failureFlash: 'Invalid username or password.',
     successFlash: 'Welcome!',
 }));
+router.get('/modify/:id', function(req, res, next) {
+    queries.comment(req.params.id)
+        .then(function(comment) {
+            console.log(comment);
+            res.render('modify', {
+                comment: comment[0]
+            })
+        })
+})
 
 
-// router.get('modifycomment/:id/:user', function(req, res, next){
-
-router.get('modifycomment/:id', function(req, res, next){
-  queries.Comments().where({
-    id: req.params.id
-  }).then(function(comment){
-    res.render('modify', {
-      title: title,
-      comments: comments,
-    })
+router.post('/isUpdated/:id', function(req, res, next){
+  queries.updateComments(req.params.id, req.body.title, req.body.body)
+  .then(function(){
+    res.redirect('/')
   })
-});
+})
+
+router.post('/isDeleted/:id', function(req, res, next){
+    console.log("deleting comment "+req.params.id);
+  queries.deleteComments(req.params.id)
+  .then(function(){
+    res.redirect('/locations')
+  })
+})
+
 
 module.exports = router;

@@ -6,7 +6,7 @@ var queries = require('../db/queries')
 
 
 router.get('/', getLocationsPage); // Retrieves selected location
-router.post('/', postComment); // Posts a comment 
+router.post('/', postComment); // Posts a comment
 
 
 function getLocationsPage(req, res, next) {
@@ -46,5 +46,6 @@ function postComment(req, res, next) {
                     })
                 })
             }
+
 
 module.exports = router;
