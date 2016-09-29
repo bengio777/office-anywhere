@@ -1,7 +1,7 @@
 <div class="row results-wrapper">
   <div class="col-lg-12 map-wrapper">
     <h2>{{count}} Results</h2>
-    <img src="https://placeholdit.imgix.net/~text?txtsize=48&txt=Google+Maps&w=1000&h=500" alt="THIS IS STATIC, DELETE ME" />
+    <div id="map"></div>
   </div>
 </div>
 
@@ -21,3 +21,22 @@
   {{/each}}
 
 </div>
+
+<script>
+
+  function initMap() {
+    var myLatLng = {lat: -25.363, lng: 131.044};
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 4,
+      center: myLatLng
+    });
+
+    var marker = new google.maps.Marker({
+      position: myLatLng,
+      map: map,
+      title: 'Hello World!'
+    });
+  }
+
+</script>
