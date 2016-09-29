@@ -84,14 +84,18 @@ router.get('/', function(req, res, next) {
          message: 'No results found, please try again.',
          error: {},
          title: 'Office Anywhere',
-         brand: 'Office Anywhere'
+         brand: 'Office Anywhere',
+         verified: req.isAuthenticated(),
+         user: req.user
        });
      } else if (r.status === 500) {
        res.render('error', {
          message: 'Something went wrong.  Please wait a moment and try again.',
          error: {},
          title: 'Office Anywhere',
-         brand: 'Office Anywhere'
+         brand: 'Office Anywhere',
+         verified: req.isAuthenticated(),
+         user: req.user
        });
      } else {
        data = r.locations;
@@ -104,7 +108,9 @@ router.get('/', function(req, res, next) {
         data,
         count: data.length,
         map: buildMapScript,
-        loadMap: true
+        loadMap: true,
+        verified: req.isAuthenticated(),
+        user: req.user
       });
    })
    .catch(function(err) {
