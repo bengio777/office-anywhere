@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var knex = require('../db_connection');
-
 var passport = require('../passport');
 var flash = require('connect-flash');
 var users = require("../users")
@@ -17,7 +16,7 @@ function getHomePage(req, res, next) {
         verified: req.isAuthenticated(),
         user: req.user
     })
-};
+}
 router.get('/login', function(req, res, next) {
     res.render('login', {
         flash: req.flash(),
@@ -26,9 +25,7 @@ router.get('/login', function(req, res, next) {
 router.get('/logout', function(req, res, next) {
     req.logout();
     res.redirect(req.get('referer'));
-});
-
-
+})
 router.get('/signup', function(req, res, next) {
     res.render('register')
 });
@@ -77,4 +74,17 @@ router.post('/isDeleted/:id', function(req, res, next){
 })
 
 
+// router.post('/locations', function(req, res, next) {
+//   console.log('this is the TITLE: ' + req.body.title);
+//             queries.addComments(req.body.title,req.body.body)
+//                 .then(function() {
+//                     queries.Comments()
+//                     .then(function(comments){
+//                       console.log(comments);
+//                       res.render('locations',{comments:comments, verify:req.isAuthenticated()})
+//
+//                     })
+//                 })
+//
+//             })
 module.exports = router;

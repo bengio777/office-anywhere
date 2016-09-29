@@ -12,6 +12,7 @@ var options = {
 
 var geocoder = NodeGeocoder(options);
 
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
@@ -20,8 +21,6 @@ router.get('/', function(req, res, next) {
     var error;
     var data;
     var locations = results.data.response;
-
-
     if (results.data.meta.code === 404) {
       res.render('error', {
         message: 'No results found, please try again.',
