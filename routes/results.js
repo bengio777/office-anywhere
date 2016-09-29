@@ -1,7 +1,17 @@
 var express = require('express');
 var router = express.Router();
 var axios = require('axios');
-var workfrom = require('workfrom')
+var NodeGeocoder = require('node-geocoder');
+
+var options = {
+  provider: 'google',
+  httpAdapter: 'https',
+  apiKey: process.env.GOOGLE_API_KEY,
+  formatter: null
+};
+
+var geocoder = NodeGeocoder(options);
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -10,6 +20,7 @@ router.get('/', function(req, res, next) {
   .then((results) => {
     var error;
     var data;
+    var locations = results.data.response;
     if (results.data.meta.code === 404) {
       res.render('error', {
         message: 'No results found, please try again.',
@@ -25,7 +36,7 @@ router.get('/', function(req, res, next) {
         brand: 'Office Anywhere'
       });
     } else {
-      data = results.data.response;
+      data = locations;
     }
 
     // console.log(results);
@@ -39,6 +50,9 @@ router.get('/', function(req, res, next) {
        count: data.length
      });
 
+   })
+   .catch(function(err) {
+     console.log(err);
    });
 
 });

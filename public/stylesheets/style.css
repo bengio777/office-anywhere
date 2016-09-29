@@ -154,3 +154,7 @@ footer img {
 .modal-close {
   margin-right: 10px;
 }
+
+#map {
+  height: 400px;
+}
