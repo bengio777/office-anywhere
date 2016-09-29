@@ -36,11 +36,9 @@ function deleteComments(id){
 
 
 module.exports = {
-
     Comments: Comments,
     addComments: addComments,
     updateComments: updateComments,
     deleteComments: deleteComments,
     comment: comment,
-
 };
