@@ -53,11 +53,7 @@ module.exports = {
     Comments: Comments,
     addComments: addComments,
     updateComments: updateComments,
-<<<<<<< HEAD
-    deleteComments: deleteComments
-=======
     deleteComments: deleteComments,
     comment: comment,
 
->>>>>>> 2386f611c457dd0ee8de173ba988cf0458a7b162
 };
