@@ -9,7 +9,7 @@ exports.up = function(knex, Promise) {
     table.string('title');
     table.text('body');
     table.boolean('rec');
-    table.timestamps();
+    table.timestamps(true,true);
 	});
 };
 
