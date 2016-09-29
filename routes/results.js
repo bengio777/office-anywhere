@@ -26,14 +26,18 @@ router.get('/', function(req, res, next) {
         message: 'No results found, please try again.',
         error: {},
         title: 'Office Anywhere',
-        brand: 'Office Anywhere'
+        brand: 'Office Anywhere',
+        verified: req.isAuthenticated(),
+        user: req.user
       });
     } else if (results.data.meta.code === 500) {
       res.render('error', {
         message: 'Something went wrong.  Please wait a moment and try again.',
         error: {},
         title: 'Office Anywhere',
-        brand: 'Office Anywhere'
+        brand: 'Office Anywhere',
+        verified: req.isAuthenticated(),
+        user: req.user
       });
     } else {
       data = locations;
@@ -47,7 +51,9 @@ router.get('/', function(req, res, next) {
        brand: 'Office Anywhere',
        error,
        data,
-       count: data.length
+       count: data.length,
+       verified: req.isAuthenticated(),
+       user: req.user
      });
 
    })

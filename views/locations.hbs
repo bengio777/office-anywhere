@@ -19,14 +19,13 @@
 </div>
 
 {{/each}}
-{{#if verify}}
+{{#if verified}}
 
 <div class="comment button" style="margin-bottom:10px">
     <a href="/location/:id" class="btn btn-primary" data-toggle="modal" data-target="#comment-modal">Leave Comment</a>
 </div>
 
 {{/if}}
-
 {{#each comments}}
 <div class="panel panel-default">
   <div class="panel-heading">
@@ -62,21 +61,6 @@
                                 <textarea class="form-control" name="body" rows="4" id="body" placeholder="Comment Body"></textarea>
                             </div>
                         </div>
-                        <!-- <label class="col-lg-2 control-label">How did you feel about this location?</label>
-              <div class="col-lg-2">
-                <div class="radio">
-                  <label>
-                    <input type="radio" name="optradio" id="like" value="option1" checked="">
-                    Like!
-                  </label>
-                </div>
-                <div class="radio">
-                  <label>
-                    <input type="radio" name="optradio" id="like" value="option2">
-                      Dislike.
-                  </label>
-                </div>
-              </div> -->
                         <div class="">
                             <div class="form-group">
                                 <label for="submitComment" class="col-lg-2 control label"></label>

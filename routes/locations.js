@@ -4,7 +4,8 @@ var express = require('express');
 var router = express.Router();
 var queries = require('../db/queries');
 var axios = require('axios');
-var workfrom = require('workfrom');
+var passport = require('../passport');
+
 
 router.get('/:id', getLocationsPage); // Retrieves selected location
 router.post('/resultID/:id', postComment); // Posts a comment
@@ -28,15 +29,16 @@ function getLocationsPage(req, res, next) {
                 data[i].admin = false;
           }
       }
-          console.log(venue);
+      console.log(req.isAuthenticated(),req.user);
             res.render('locations', {
               venue: venue,
               title: 'Office Anywhere',
               brand: 'Office Anywhere',
-              verify: req.isAuthenticated(),
               comments: data,
               admin : data.admin,
-              resultID: venue[0].ID
+              resultID: venue[0].ID,
+              verified: req.isAuthenticated(),
+              user: req.user
       })
     })
   })
