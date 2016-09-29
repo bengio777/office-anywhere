@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var knex = require('../db_connection');
 var passport = require('../passport');
 var flash = require('connect-flash');
 var users = require("../users")
@@ -14,7 +13,6 @@ function getHomePage(req, res, next) {
         title: 'Office Anywhere',
         brand: 'Office Anywhere',
         verified: req.isAuthenticated(),
-        user: req.user
     })
 }
 router.get('/login', function(req, res, next) {

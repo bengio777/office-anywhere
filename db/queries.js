@@ -1,5 +1,17 @@
+"use strict";
 
 var knex = require('./knex.js')
+
+function Users() {
+  return knex("users")
+}
+
+function AddUser(username, password){
+  return knex("users").insert({
+    username: username.toLowerCase(),
+    password: password
+  })
+}
 
 function Comments() {
     return knex("users").join("comments","users.id","comments.user_id ")
@@ -36,11 +48,16 @@ function deleteComments(id){
 
 
 module.exports = {
-
+    Users: Users,
+    AddUser: AddUser,
     Comments: Comments,
     addComments: addComments,
     updateComments: updateComments,
+<<<<<<< HEAD
+    deleteComments: deleteComments
+=======
     deleteComments: deleteComments,
     comment: comment,
 
+>>>>>>> 2386f611c457dd0ee8de173ba988cf0458a7b162
 };
