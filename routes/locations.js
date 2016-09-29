@@ -1,12 +1,20 @@
 var admin;
+var venue;
 var express = require('express');
 var router = express.Router();
-var queries = require('../db/queries')
+var queries = require('../db/queries');
+var axios = require('axios');
+var workfrom= require('workfrom')
 
 router.get('/:id', getLocationsPage); // Retrieves selected location
 router.post('/', postComment); // Posts a comment
 
 function getLocationsPage(req, res, next) {
+  axios.get(`http://api.workfrom.co/places/${req.params.id}?appid=${process.env.WORKFROM_API_KEY}`)
+  .then(function(result){
+  console.log(result.data.response);
+  venue = result.data.response;
+})
   queries.Comments().orderBy('id', 'asc')
     .then(function(data) {
       for(var i in data){
@@ -27,6 +35,7 @@ function getLocationsPage(req, res, next) {
             brand: 'Office Anywhere',
             verify: req.isAuthenticated(),
             comments: data,
+            venue: venue,
             admin : data.admin
     })
   })

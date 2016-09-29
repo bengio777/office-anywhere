@@ -9,7 +9,6 @@ router.get('/', function(req, res, next) {
   .then((results) => {
     var error;
     var data;
-
     if (results.data.meta.code === 404) {
       res.render('error', {
         message: 'No results found, please try again.',
