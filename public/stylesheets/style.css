@@ -77,9 +77,9 @@ a {
 .jumbo-content {
   color: white;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-35%);
 }
 
 .feature-image {
