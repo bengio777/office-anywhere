@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var knex = require('../db_connection');
 var passport = require('../passport');
 var flash = require('connect-flash');
 var users = require("../users")
@@ -29,8 +28,10 @@ router.get('/logout', function(req, res, next) {
     res.redirect(req.get('referer'));
 })
 router.get('/signup', function(req, res, next) {
-    res.render('register',{  verified: req.isAuthenticated(),
-      user: req.user})
+    res.render('register',{
+      verified: req.isAuthenticated(),
+      user: req.user
+    })
 });
 router.post('/register', function(req, res, next) {
     users.Register(req.body.username, req.body.password, req.body.password1)

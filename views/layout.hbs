@@ -40,15 +40,17 @@
 
     {{{body}}}
 
-    <!-- Google maps HTML, need to integrate into Express
-         <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-         <div id="map"></div> -->
-
     <footer>
       <div class="container-fluid">
         <div class="row">
-          <div class="col-lg-12 logo-wrap">
-            <h3>Powered by</h3><a href="https://workfrom.co" target="_blank"><img src="/images/workfrom_logo.png" alt="Workfrom" /></a>
+          <div class="col-lg-12">
+            <div class="logo-wrap pull-left">
+              <h3>Powered by</h3>
+              <a href="https://workfrom.co" target="_blank"><img src="/images/workfrom_logo.png" alt="Workfrom" /></a>
+            </div>
+            <div class="copy pull-right">
+              <h4>&copy; Navid Fallahazad, Benjamin Giordano, Taylor Hessel, Thomas Rizzo</h4>
+            </div>
           </div>
         </div>
       </div>
@@ -117,7 +119,7 @@
 
     <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARppMTWlZPCxT0N27P45TB0w0H4BD4hvQ&callback=initMap" async defer></script>
+    {{#if loadMap}}<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARppMTWlZPCxT0N27P45TB0w0H4BD4hvQ&callback=initMap" async defer></script>{{/if}}
 
   </body>
 </html>
