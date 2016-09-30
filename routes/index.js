@@ -48,7 +48,7 @@ router.post('/register', function(req, res, next) {
         })
 });
 router.post('/login', passport.authenticate('local', {
-    successRedirect: '/',
+    successRedirect: 'back',
     failureRedirect: '/login',
     failureFlash: 'Invalid username or password.',
     successFlash: 'Welcome!',
@@ -58,7 +58,9 @@ router.get('/modify/:id', function(req, res, next) {
         .then(function(comment) {
             console.log(comment);
             res.render('modify', {
-                comment: comment[0]
+                comment: comment[0],
+                verified: req.isAuthenticated(),
+                user: req.user
             })
         })
 })
@@ -66,7 +68,6 @@ router.get('/modify/:id', function(req, res, next) {
 
 router.post('/isUpdated/:id/:locid', function(req, res, next){
   var Id = req.params.locid
-  console.log(Id);
   queries.updateComments(req.params.id,req.body.title, req.body.body)
   .then(function(){
     res.redirect('/locations/'+Id)

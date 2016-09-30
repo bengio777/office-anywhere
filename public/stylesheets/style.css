@@ -77,9 +77,9 @@ a {
 .jumbo-content {
   color: white;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-35%);
 }
 
 .feature-image {
@@ -115,6 +115,11 @@ footer .logo-wrap {
   justify-content: flex-start;
   align-items: center;
   margin-top: 4px;
+}
+
+footer .copy {
+  color: white;
+  margin: 21px 0;
 }
 
 footer h3 {
