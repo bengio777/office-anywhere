@@ -58,7 +58,9 @@ router.get('/modify/:id', function(req, res, next) {
         .then(function(comment) {
             console.log(comment);
             res.render('modify', {
-                comment: comment[0]
+                comment: comment[0],
+                verified: req.isAuthenticated(),
+                user: req.user
             })
         })
 })
