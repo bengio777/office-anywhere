@@ -4,6 +4,8 @@ var passport = require('../passport');
 var flash = require('connect-flash');
 var users = require("../users")
 var queries = require("../db/queries")
+var knex = require('../db/knex.js')
+
 
 /* GET home page. */
 router.get('/', getHomePage); //Retrieves '/'
@@ -48,7 +50,7 @@ router.post('/register', function(req, res, next) {
         })
 });
 router.post('/login', passport.authenticate('local', {
-    successRedirect: '/',
+    successRedirect: 'back',
     failureRedirect: '/login',
     failureFlash: 'Invalid username or password.',
     successFlash: 'Welcome!',
@@ -67,6 +69,7 @@ router.get('/modify/:id', function(req, res, next) {
 router.post('/isUpdated/:id/:locid', function(req, res, next){
   var Id = req.params.locid
   console.log(Id);
+  console.log(req.params.id,req.body.title);
   queries.updateComments(req.params.id,req.body.title, req.body.body)
   .then(function(){
     res.redirect('/locations/'+Id)

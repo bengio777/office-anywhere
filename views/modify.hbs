@@ -8,13 +8,13 @@
     <div class="form-group">
       <label for="title" class="col-lg-2 control-label">Edit Title</label>
       <div class="col-lg-6">
-        <textarea class="form-control" id="title" placeholder="Edit Title Here" minlength="3" maxlength="15" required>{{comments.title}}</textarea>
+        <textarea class="form-control" name="title" id="title" placeholder="Edit Title Here" minlength="3" maxlength="15" required>{{comment.title}}</textarea>
       </div>
     </div>
     <div class="form-group">
       <label for="textArea" class="col-lg-2 control-label">Edit Body</label>
       <div class="col-lg-6">
-        <textarea class="form-control" rows="8" id="textArea" minlength="3" maxlength="140" required>{{comments.body}}</textarea>
+        <textarea class="form-control" name="body" rows="8" id="textArea" minlength="3" maxlength="140" required>{{comment.body}}</textarea>
       </div>
     </div>
     <div class="form-group">

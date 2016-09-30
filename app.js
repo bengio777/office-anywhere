@@ -7,9 +7,6 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var passport = require('./passport');
 var flash = require('connect-flash');
-
-
-
 var routes = require('./routes/index');
 var results = require('./routes/results');
 var locations = require('./routes/locations');
