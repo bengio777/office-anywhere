@@ -66,7 +66,6 @@ router.get('/modify/:id', function(req, res, next) {
 
 router.post('/isUpdated/:id/:locid', function(req, res, next){
   var Id = req.params.locid
-  console.log(Id);
   queries.updateComments(req.params.id,req.body.title, req.body.body)
   .then(function(){
     res.redirect('/locations/'+Id)

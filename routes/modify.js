@@ -21,13 +21,4 @@ router.get('/', function(req, res, next) {
 });
 
 
-// function updateComments(req, res, next) {
-// router.get('/modify/:id',function(req,res,next){
-//     queries.comment(req.params.id)
-//     .then(function(comment){
-//       console.log(comment);
-//       res.render('modify', {comment: comment})
-//     })
-//
-// })
 module.exports = router;

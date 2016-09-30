@@ -32,11 +32,10 @@ function addComments(title,body,user_id,loc_id){
 }
 
 function updateComments(id, title, body){
-  return knex('comments').where({
-    id: id
-  }).update({
+  return knex('comments').where('id', id)
+  .update({
     title: title,
-    body: body
+    body: body,
   })
 }
 
@@ -53,4 +52,6 @@ module.exports = {
     Comments: Comments,
     addComments: addComments,
     updateComments: updateComments,
+    deleteComments: deleteComments,
+    comment: comment,
 };
