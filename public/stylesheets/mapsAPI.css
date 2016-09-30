@@ -8,7 +8,6 @@
     outline: none;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
-
 #pac-input {
     background-color: #fff;
     font-family: Roboto;
@@ -19,27 +18,22 @@
     text-overflow: ellipsis;
     width: 300px;
 }
-
 #pac-input:focus {
     border-color: #4d90fe;
 }
-
 .pac-container {
     font-family: Roboto;
 }
-
 #type-selector {
     color: #fff;
     background-color: #4d90fe;
     padding: 5px 11px 0px 11px;
 }
-
 #type-selector label {
     font-family: Roboto;
     font-size: 13px;
     font-weight: 300;
 }
-
 #target {
     width: 345px;
 }
