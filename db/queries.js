@@ -32,11 +32,10 @@ function addComments(title, body, user_id, loc_id) {
 }
 
 function updateComments(id, title, body) {
-    return knex('comments').where('id', id)
-        .update({
-            title: title,
-            body: body,
-        })
+    return knex("comments").where('id', id).update({
+        title: title,
+        body: body,
+    })
 }
 
 function deleteComments(id) {

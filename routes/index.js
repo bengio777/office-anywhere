@@ -4,6 +4,8 @@ var passport = require('../passport');
 var flash = require('connect-flash');
 var users = require("../users")
 var queries = require("../db/queries")
+var knex = require('../db/knex.js')
+
 
 /* GET home page. */
 router.get('/', getHomePage); //Retrieves '/'
@@ -19,9 +21,11 @@ function getHomePage(req, res, next) {
 }
 router.get('/login', function(req, res, next) {
     res.render('login', {
-        flash: req.flash(),
-        verified: req.isAuthenticated(),
-        user: req.user
+      title: 'Office Anywhere',
+      brand: 'Office Anywhere',
+      flash: req.flash(),
+      verified: req.isAuthenticated(),
+      user: req.user
     })
 });
 router.get('/logout', function(req, res, next) {
@@ -30,8 +34,10 @@ router.get('/logout', function(req, res, next) {
 })
 router.get('/signup', function(req, res, next) {
     res.render('register', {
-        verified: req.isAuthenticated(),
-        user: req.user
+      title: 'Office Anywhere',
+      brand: 'Office Anywhere',
+      verified: req.isAuthenticated(),
+      user: req.user
     })
 });
 router.post('/register', function(req, res, next) {
@@ -57,11 +63,12 @@ router.post('/login', passport.authenticate('local', {
 router.get('/modify/:id', function(req, res, next) {
     queries.comment(req.params.id)
         .then(function(comment) {
-            console.log(comment);
             res.render('modify', {
-                comment: comment[0],
-                verified: req.isAuthenticated(),
-                user: req.user
+              title: 'Office Anywhere',
+              brand: 'Office Anywhere',
+              comment: comment[0],
+              verified: req.isAuthenticated(),
+              user: req.user
             })
         })
 })
