@@ -10,7 +10,7 @@ body{
   <img style="float:right; height:400px; width:500px; margin-top:20px; margin-bottom:20px; margin-right:100px" src='{{#if full_img}}{{full_img}}{{else}}https://placeholdit.imgix.net/~text?txtsize=16&txt=Photos+coming+soon&w=210&h=140{{/if}}'alt="{{title}}">
 </div>
 
-<div style="margin-left:100px; margin-right:100px; margin-top:20px">
+<div style="margin-left:100px; margin-right:100px; margin-top:20px; width:50%; padding-right:15%">
 
   <h1 style="font-weight:bold">{{title}}</h1>
   <h4>{{street}}, {{city}}, {{postal}}</h4>
@@ -26,7 +26,7 @@ body{
 {{/each}}
 {{#if verified}}
 
-<div class="comment button" style="margin-left:100px; margin-top:30px">
+<div class="comment button" style="margin-left:300px; margin-top:30px">
     <a href="/location/:id" class="btn btn-primary" data-toggle="modal" data-target="#comment-modal">Leave Comment</a>
 </div>
 
