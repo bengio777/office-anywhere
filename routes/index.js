@@ -4,9 +4,12 @@ var passport = require('../passport');
 var flash = require('connect-flash');
 var users = require("../users")
 var queries = require("../db/queries")
+var knex = require('../db/knex.js')
+
 
 /* GET home page. */
 router.get('/', getHomePage); //Retrieves '/'
+router.get('/register', getHomePage) // Will redirect new users to main page after creating account.
 
 function getHomePage(req, res, next) {
     res.render('index', {
@@ -30,7 +33,7 @@ router.get('/logout', function(req, res, next) {
     res.redirect(req.get('referer'));
 })
 router.get('/signup', function(req, res, next) {
-    res.render('register',{
+    res.render('register', {
       title: 'Office Anywhere',
       brand: 'Office Anywhere',
       verified: req.isAuthenticated(),
@@ -60,7 +63,6 @@ router.post('/login', passport.authenticate('local', {
 router.get('/modify/:id', function(req, res, next) {
     queries.comment(req.params.id)
         .then(function(comment) {
-            console.log(comment);
             res.render('modify', {
               title: 'Office Anywhere',
               brand: 'Office Anywhere',
@@ -72,21 +74,21 @@ router.get('/modify/:id', function(req, res, next) {
 })
 
 
-router.post('/isUpdated/:id/:locid', function(req, res, next){
-  var Id = req.params.locid
-  queries.updateComments(req.params.id,req.body.title, req.body.body)
-  .then(function(){
-    res.redirect('/locations/'+Id)
-  })
+router.post('/isUpdated/:id/:locid', function(req, res, next) {
+    var Id = req.params.locid
+    queries.updateComments(req.params.id, req.body.title, req.body.body)
+        .then(function() {
+            res.redirect('/locations/' + Id)
+        })
 })
 
-router.post('/isDeleted/:id/:locid', function(req, res, next){
-  var Id = req.params.locid
-  queries.deleteComments(req.params.id)
-  .then(function(){
-    res.redirect('/locations/'+Id)
+router.post('/isDeleted/:id/:locid', function(req, res, next) {
+    var Id = req.params.locid
+    queries.deleteComments(req.params.id)
+        .then(function() {
+            res.redirect('/locations/' + Id)
 
-  })
+        })
 })
 
 module.exports = router;

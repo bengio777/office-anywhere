@@ -3,16 +3,16 @@ require('dotenv').config();
 
 module.exports = {
 
-  development: {
-    client: 'pg',
-    connection:'postgres://localhost/office-anywhere'
+    development: {
+        client: 'pg',
+        connection: 'postgres://localhost/office-anywhere'
 
-  },
-
-
-  production: {
-    client: 'postgresql',
-    connection: process.env.DATABASE_URL+ '?ssl=true',
     },
 
-  };
+
+    production: {
+        client: 'postgresql',
+        connection: process.env.DATABASE_URL + '?ssl=true',
+    },
+
+};

@@ -29,7 +29,7 @@ function confirmpassword(username, password, password1) {
     if (password == password1) {
         return findUser(username)
     } else {
-      return Promise.reject("Please confirm your password.")
+        return Promise.reject("Please confirm your password.")
     }
 }
 
