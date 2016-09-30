@@ -44,6 +44,12 @@ function deleteComments(id) {
     }).del()
 }
 
+function timestamp(date) {
+    var time = String(date);
+    var timearr = time.split(" ")
+    var stamp = timearr[0] + " " + timearr[1] + " " + timearr[2] + " " + timearr[3] + " @ " + timearr[4];
+    return stamp
+}
 
 module.exports = {
     Users: Users,
@@ -53,4 +59,5 @@ module.exports = {
     updateComments: updateComments,
     deleteComments: deleteComments,
     comment: comment,
+    timestamp: timestamp
 };

@@ -18,6 +18,7 @@ function getLocationsPage(req, res, next) {
             queries.Comments().where('loc_id', req.params.id)
                 .then(function(data) {
                     for (var i in data) {
+                      data[i].time = queries.timestamp(data[i].created_at);
                         if (req.isAuthenticated()) {
                             var userRole = req.user.role
                             if (
@@ -36,6 +37,7 @@ function getLocationsPage(req, res, next) {
                         brand: 'Office Anywhere',
                         comments: data,
                         admin: data.admin,
+                        time:data.time,
                         resultID: venue[0].ID,
                         verified: req.isAuthenticated(),
                         user: req.user
