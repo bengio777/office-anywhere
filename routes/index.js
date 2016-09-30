@@ -48,7 +48,7 @@ router.post('/register', function(req, res, next) {
         })
 });
 router.post('/login', passport.authenticate('local', {
-    successRedirect: '/',
+    successRedirect: 'back',
     failureRedirect: '/login',
     failureFlash: 'Invalid username or password.',
     successFlash: 'Welcome!',
