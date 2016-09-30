@@ -7,6 +7,7 @@ var queries = require("../db/queries")
 
 /* GET home page. */
 router.get('/', getHomePage); //Retrieves '/'
+router.get('/register', getHomePage) // Will redirect new users to main page after creating account.
 
 function getHomePage(req, res, next) {
     res.render('index', {
