@@ -1,54 +1,64 @@
-{{#each venue}}
+<style>
+body{
+  background-color: #f0ead6
+}
+</style>
 
+{{#each venue}}
+<div style="min-height:425px">
 <div class="text-center">
-  <img style="height:300px; width:400px; margin-top:1px" src='{{#if full_img}}{{full_img}}{{else}}https://placeholdit.imgix.net/~text?txtsize=16&txt=Photos+coming+soon&w=210&h=140{{/if}}'alt="{{title}}">
+  <img style="float:right; height:400px; width:500px; margin-top:20px; margin-bottom:20px; margin-right:100px" src='{{#if full_img}}{{full_img}}{{else}}https://placeholdit.imgix.net/~text?txtsize=16&txt=Photos+coming+soon&w=210&h=140{{/if}}'alt="{{title}}">
 </div>
 
-<div style="margin-left:15px; margin-right:500px">
+<div style="margin-left:100px; margin-right:100px; margin-top:20px; width:50%; padding-right:15%">
 
-  <h1>{{title}}</h1>
-  <h4>{{street}}</h4>
-  <h4>{{city}}, {{postal}}</h4>
+  <h1 style="font-weight:bold">{{title}}</h1>
+  <h4>{{street}}, {{city}}, {{postal}}</h4>
   Wifi Speeds:
   <div style="margin-top:5px">
-    <span>download</span><p>{{download}} MBPS</p>
-    <span>upload</span><p>{{upload}} MBPS</p>
+  <p><span>Download: </span>{{download}} MBPS,<span> Upload: </span>{{upload}} MBPS</p>
+
     <h4>About {{title}}:</h4>
     <p>{{description}}</p>
+    </div>
   </div>
 </div>
-
 {{/each}}
 {{#if verified}}
 
-<div class="comment button" style="margin-bottom:10px">
+<div class="comment button" style="margin-left:300px; margin-top:30px">
     <a href="/location/:id" class="btn btn-primary" data-toggle="modal" data-target="#comment-modal">Leave Comment</a>
 </div>
 
 {{/if}}
+
+<div>
+  <h2 align="center" style="font-weight:bold">Comments</h2>
 {{#each comments}}
-<div class="panel panel-default">
+<div class="panel panel-default" style="margin-left:300px; margin-right:300px">
   <div class="panel-heading">
     <h3>{{username}} wrote:</h3>
-    <h3 class="panel-title">{{id}}.) {{title}}</h3>
+    <h3 class="panel-title">{{title}}</h3>
   </div>
 <div class="panel-body">
     <p>{{body}}</p>
     <!-- <h5>Would you recommend this venue?<h5>{{rec}}</h5> -->
     {{created_at}}
 </div>
+
 {{#if admin}}
-  <form class="" action="/isDeleted/{{id}}/{{loc_id}}" method="post">
+
+<form class="" action="/isDeleted/{{id}}/{{loc_id}}" method="post">
         <input type="submit" class="btn btn-danger" value="Delete Comment">
-  </form>
-
+</form>
+<span>
     <a href="/modify/{{id}}" class="btn btn-warning" data-toggle="modal">Edit Comment</a>
-
+</span>
 {{/if}}
 </div>
 {{/each}}
 
-
+</div>
 <div class="modal fade" id="comment-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

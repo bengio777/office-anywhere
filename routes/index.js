@@ -9,6 +9,7 @@ var knex = require('../db/knex.js')
 
 /* GET home page. */
 router.get('/', getHomePage); //Retrieves '/'
+router.get('/register', getHomePage) // Will redirect new users to main page after creating account.
 
 function getHomePage(req, res, next) {
     res.render('index', {
@@ -30,9 +31,9 @@ router.get('/logout', function(req, res, next) {
     res.redirect(req.get('referer'));
 })
 router.get('/signup', function(req, res, next) {
-    res.render('register',{
-      verified: req.isAuthenticated(),
-      user: req.user
+    res.render('register', {
+        verified: req.isAuthenticated(),
+        user: req.user
     })
 });
 router.post('/register', function(req, res, next) {
@@ -58,31 +59,30 @@ router.post('/login', passport.authenticate('local', {
 router.get('/modify/:id', function(req, res, next) {
     queries.comment(req.params.id)
         .then(function(comment) {
-            console.log(comment);
             res.render('modify', {
-                comment: comment[0]
+                comment: comment[0],
+                verified: req.isAuthenticated(),
+                user: req.user
             })
         })
 })
 
 
-router.post('/isUpdated/:id/:locid', function(req, res, next){
-  var Id = req.params.locid
-  console.log(Id);
-  console.log(req.params.id,req.body.title);
-  queries.updateComments(req.params.id,req.body.title, req.body.body)
-  .then(function(){
-    res.redirect('/locations/'+Id)
-  })
+router.post('/isUpdated/:id/:locid', function(req, res, next) {
+    var Id = req.params.locid
+    queries.updateComments(req.params.id, req.body.title, req.body.body)
+        .then(function() {
+            res.redirect('/locations/' + Id)
+        })
 })
 
-router.post('/isDeleted/:id/:locid', function(req, res, next){
-  var Id = req.params.locid
-  queries.deleteComments(req.params.id)
-  .then(function(){
-    res.redirect('/locations/'+Id)
+router.post('/isDeleted/:id/:locid', function(req, res, next) {
+    var Id = req.params.locid
+    queries.deleteComments(req.params.id)
+        .then(function() {
+            res.redirect('/locations/' + Id)
 
-  })
+        })
 })
 
 module.exports = router;
