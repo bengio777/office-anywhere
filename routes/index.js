@@ -29,9 +29,9 @@ router.get('/logout', function(req, res, next) {
     res.redirect(req.get('referer'));
 })
 router.get('/signup', function(req, res, next) {
-    res.render('register',{
-      verified: req.isAuthenticated(),
-      user: req.user
+    res.render('register', {
+        verified: req.isAuthenticated(),
+        user: req.user
     })
 });
 router.post('/register', function(req, res, next) {
@@ -67,21 +67,21 @@ router.get('/modify/:id', function(req, res, next) {
 })
 
 
-router.post('/isUpdated/:id/:locid', function(req, res, next){
-  var Id = req.params.locid
-  queries.updateComments(req.params.id,req.body.title, req.body.body)
-  .then(function(){
-    res.redirect('/locations/'+Id)
-  })
+router.post('/isUpdated/:id/:locid', function(req, res, next) {
+    var Id = req.params.locid
+    queries.updateComments(req.params.id, req.body.title, req.body.body)
+        .then(function() {
+            res.redirect('/locations/' + Id)
+        })
 })
 
-router.post('/isDeleted/:id/:locid', function(req, res, next){
-  var Id = req.params.locid
-  queries.deleteComments(req.params.id)
-  .then(function(){
-    res.redirect('/locations/'+Id)
+router.post('/isDeleted/:id/:locid', function(req, res, next) {
+    var Id = req.params.locid
+    queries.deleteComments(req.params.id)
+        .then(function() {
+            res.redirect('/locations/' + Id)
 
-  })
+        })
 })
 
 module.exports = router;

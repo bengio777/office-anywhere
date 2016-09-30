@@ -1,33 +1,33 @@
 body {
-  font: 14px 'Roboto', sans-serif;
+    font: 14px 'Roboto', sans-serif;
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
 }
 
 .navbar {
-  margin-bottom: 0;
-  border-radius: 0;
-  min-height: 80px;
+    margin-bottom: 0;
+    border-radius: 0;
+    min-height: 80px;
 }
 
 .navbar .nav {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 
 .navbar-header {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 
 .navbar-brand {
-  font-size: 46px;
-  font-family: 'Oleo Script', cursive;
+    font-size: 46px;
+    font-family: 'Oleo Script', cursive;
 }
 
-.navbar-nav > li > a:focus {
-  border: 0;
-  outline: 0;
+.navbar-nav>li>a:focus {
+    border: 0;
+    outline: 0;
 }
 
 .logout-wrapper {
@@ -42,124 +42,124 @@ a {
 }
 
 .logout-wrapper span {
-  margin-right: 15px;
+    margin-right: 15px;
 }
 
 .logout-wrapper a {
-  text-decoration: none;
-  color: #98978b;
+    text-decoration: none;
+    color: #98978b;
 }
 
 .logout-wrapper a:hover {
-  color: white;
+    color: white;
 }
 
 .jumbotron {
-  position:relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align:center;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  margin-bottom: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 20px;
 }
 
 .jumbotron h1 {
-  font-size: 56px;
+    font-size: 56px;
 }
 
-.jumbotron > img {
-  width: 100%;
+.jumbotron>img {
+    width: 100%;
 }
 
 .jumbo-content {
-  color: white;
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-35%);
+    color: white;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-35%);
 }
 
 .feature-image {
-  width: 100%;
+    width: 100%;
 }
 
 .jumbotron-form {
-  margin-top: 30px;
+    margin-top: 30px;
 }
 
-.jumbotron-form input{
-  width: 80%;
-  display: inline;
+.jumbotron-form input {
+    width: 80%;
+    display: inline;
 }
 
 .jumbotron-form button {
-  display: inline;
-  margin-left: 5px;
+    display: inline;
+    margin-left: 5px;
 }
 
 .thumbnail {
-  min-height: 400px;
+    min-height: 400px;
 }
 
 footer {
-  background-color: #3e3f3a;
-  min-height: 80px;
+    background-color: #3e3f3a;
+    min-height: 80px;
 }
 
 footer .logo-wrap {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  margin-top: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 4px;
 }
 
 footer .copy {
-  color: white;
-  margin: 21px 0;
+    color: white;
+    margin: 21px 0;
 }
 
 footer h3 {
-  display: inline;
-  padding-top: 5px;
-  color: white;
+    display: inline;
+    padding-top: 5px;
+    color: white;
 }
 
 footer img {
-  width: 140px;
-  padding-top: 12px;
-  display: inline;
-  margin-left: 10px;
+    width: 140px;
+    padding-top: 12px;
+    display: inline;
+    margin-left: 10px;
 }
 
 .map-wrapper {
-  text-align: center;
-  margin-bottom: 45px;
+    text-align: center;
+    margin-bottom: 45px;
 }
 
 .map-wrapper h2 {
-  margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 .result-row {
-  margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 .result-row img {
-  width: 100%;
+    width: 100%;
 }
 
 .result-row h4 {
-  margin-top: 0;
+    margin-top: 0;
 }
 
 .modal-close {
-  margin-right: 10px;
+    margin-right: 10px;
 }
 
 #map {
-  height: 400px;
+    height: 400px;
 }
