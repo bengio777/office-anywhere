@@ -27,7 +27,7 @@ body{
 {{#if verified}}
 
 <div class="comment button" style="margin-left:300px; margin-top:30px">
-    <a href="/location/:id" class="btn btn-primary" data-toggle="modal" data-target="#comment-modal">Leave Comment</a>
+    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#comment-modal">Leave Comment</a>
 </div>
 
 {{/if}}
@@ -48,12 +48,12 @@ body{
 
 {{#if admin}}
 
-<form class="" action="/isDeleted/{{id}}/{{loc_id}}" method="post">
-        <input type="submit" class="btn btn-danger" value="Delete Comment">
-</form>
-<span>
-    <a href="/modify/{{id}}" class="btn btn-warning" data-toggle="modal">Edit Comment</a>
-</span>
+<div class="button-wrapper">
+  <a href="/modify/{{id}}" class="btn btn-warning btn-xs" data-toggle="modal">Edit Comment</a>
+  <form class="" action="/isDeleted/{{id}}/{{loc_id}}" method="post">
+          <input type="submit" class="btn btn-danger btn-xs" value="Delete Comment">
+  </form>
+</div>
 {{/if}}
 </div>
 {{/each}}
